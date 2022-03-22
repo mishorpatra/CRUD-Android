@@ -6,7 +6,7 @@
     "orientation": "portrait",
     "icon": "./assets/appLogo.png",
     "splash": {
-      "image": "./assets/splash.png",
+      "image": "./assets/appLogo.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -22,12 +22,12 @@
     "android": {
       "package": "mishorstore.crudapp",
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/appLogo.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./assets/favicon.png"
+      "favicon": "./assets/appLogo.png"
     }
   }
 }

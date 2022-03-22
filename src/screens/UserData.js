@@ -10,6 +10,7 @@ const UserData = () => {
 const [myData, setMyData] = useState([])
 const [isLoaded, setIsLoaded] = useState(true)
 const [visible, setVisible] = useState(false)
+const [visibleDelete, setVisibleDelete] = useState(false)
 const [activeId, setActiveId] = useState('')
 
   const getUserData = async () => {
@@ -26,8 +27,22 @@ const [activeId, setActiveId] = useState('')
     showDialog(true)
     setActiveId(id)
   }
+  const showDialogDelete = () => {
+    setVisibleDelete(true)
+  }
   const deleteHandle = async (id) => {
-    await deleteUser(id)
+    setVisibleDelete(true)
+    setActiveId(id)
+    /*await deleteUser(id)
+    setIsLoaded(true)
+    getUserData()*/
+  }
+  const handleCancelDelete = () => {
+    setVisibleDelete(false)
+  }
+  const handleDelete = async () => {
+    await deleteUser(activeId)
+    setVisibleDelete(false)
     setIsLoaded(true)
     getUserData()
   }
@@ -74,16 +89,26 @@ const [activeId, setActiveId] = useState('')
         horizontal={true}
       />
       <View style={styles.container}>
-      <Button title="Show dialog" onPress={showDialog} />
-      <Dialog.Container visible={visible}>
-        <Dialog.Title>Update data</Dialog.Title>
-        <Dialog.Description>
-          <Update id={activeId} setVisible={setVisible} />
-        </Dialog.Description>
-        <Dialog.Button label="Cancel" onPress={handleCancel} />
-      </Dialog.Container>
+        <Button title="Show dialog" onPress={showDialog} />
+        <Dialog.Container visible={visible}>
+          <Dialog.Title>Update data</Dialog.Title>
+          <Dialog.Description>
+            <Update id={activeId} setVisible={setVisible} />
+          </Dialog.Description>
+          <Dialog.Button label="Cancel" onPress={handleCancel} />
+        </Dialog.Container>
+      </View>
+      <View style={styles.container}>
+        <Button title="Show dialog" onPress={showDialogDelete} />
+        <Dialog.Container visible={visibleDelete}>
+          <Dialog.Title>Are you sure ?</Dialog.Title>
+          
+          <Dialog.Button label="Cancel" onPress={handleCancelDelete} />
+          <Dialog.Button style={{color: 'red'}} label="Delete" onPress={handleDelete} />
+        </Dialog.Container>
+      </View>
     </View>
-    </View>
+    
   )
 }
 

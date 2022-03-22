@@ -19,13 +19,13 @@ const About = () => {
       <Text style={styles.socials}>Follow me on my Socials</Text>
       <View style={styles.menuContainer}>
         <TouchableOpacity style={styles.btnStyle} onPress={() => Linking.openURL("https://www.instagram.com/this_is_mishor")}>
-          <Image style={styles.iconStyle} source={{uri: 'https://cdn-icons-png.flaticon.com/512/174/174855.png'}}/>
+          <Image style={styles.iconStyle} source={require('../../assets/insta.png')}/>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btnStyle} onPress={() => Linking.openURL("https://www.linkedin.com/in/mishor-patra-90097a1b0")}>
-          <Image style={styles.iconStyle} source={{uri: 'https://cdn-icons.flaticon.com/png/512/3536/premium/3536505.png?token=exp=1647674656~hmac=5a241c28dcebc0b304e1b87c2f061502'}}/>
+          <Image style={styles.iconStyle} source={require('../../assets/linkedIn.png')}/>
         </TouchableOpacity>
         <TouchableOpacity style={styles.btnStyle} onPress={() => Linking.openURL("https://www.facebook.com/mishor.patra")}>
-          <Image style={styles.iconStyle} source={{uri: 'https://cdn-icons-png.flaticon.com/512/733/733547.png'}}/>
+          <Image style={styles.iconStyle} source={require('../../assets/facebook.png')}/>
         </TouchableOpacity>
       </View>
     </View>
